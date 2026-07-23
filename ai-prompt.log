@@ -1,0 +1,1107 @@
+# AI Prompt Log
+# Append a numbered entry for every AI interaction in the order they occurred.
+# See TASKS.md for the required format.
+
+---
+timestamp: 2026-07-22T04:19:00Z
+model: Gemini-2.5-Flash
+prompt: |
+  Review the two files TASKS.md and Product.md. Before writing code, summarize the functional requirements, non-functional requirements, edge cases and any ambiguous requirements that should be clarified. Then propose a backend architecture using Spring Boot. Do not generate code yet.
+---
+
+---
+timestamp: 2026-07-22T04:24:00Z
+model: Gemini-2.5-Flash
+prompt: |
+  I am building an Order Management System so propose a production ready architecture. Now include controller responsibilities, service layer, repository layer, entity relationships, DTOs, validation, exception handling, transaction boundaries, loggind and package structure. Explain the tradeoffs but don't generate the implementation.
+---
+
+---
+timestamp: 2026-07-22T04:29:00Z
+model: Gemini-2.5-Flash
+prompt: |
+  Review ProductEntity.java and tell me that does this model satisfy the business requirements? Would you recommend additional fields, contrainsts, indexes, or enums? Explain why before suggesting changes.
+---
+
+---
+timestamp: 2026-07-22T04:36:00Z
+model: Gemini-2.5-Flash
+prompt: |
+  Review the API endpoints required bt Product.md and suggest a REST API design including URLs, request models, response models, HTTP status codes, validation stratergy. Avoid implementation details.
+---
+
+---
+timestamp: 2026-07-22T04:54:00Z
+model: Gemini-2.5-Flash
+prompt: |
+  Let's implement the backend for the order management system. Requirements are:
+  1. Use spring boot 3
+  2. Follow the architecture discussed earlier.
+  3. Keep controllers thin and place business logic in the service layer.
+  4. Use DTOs instead of exposing extities.
+  5. Implement proper validation using Bean validation and service level business validations.
+  6. Return appropriate HTTP status codes.
+  7. Add centralized exception handling using @ControllerAvice.
+  8. Keep the code modular and production ready.
+
+  Let's implement one layer at a time, use lombok for getters and setters
+---
+
+---
+timestamp: 2026-07-22T05:01:00Z
+model: Gemini-2.5-Flash
+prompt: |
+  Let's move to next steps
+---
+
+---
+timestamp: 2026-07-22T05:04:00Z
+model: Gemini-2.5-Flash
+prompt: |
+  Let's move to next steps
+---
+
+---
+timestamp: 2026-07-22T05:09:00Z
+model: Gemini-2.5-Flash
+prompt: |
+  Let's move to next steps
+---
+
+---
+timestamp: 2026-07-22T05:16:00Z
+model: Gemini-2.5-Flash
+prompt: |
+  Let's move to next steps
+---
+
+---
+timestamp: 2026-07-22T05:23:58Z
+model: Gemini-2.5-Flash
+prompt: |
+  Review ProductEntity.java does the current model satisfy the requirements?
+
+  Recommend improvements for constraints, indexes, relationships, nullable fields, optimistic locking, future scalability
+
+  Explain before modifying.
+---
+
+---
+timestamp: 2026-07-22T05:33:00Z
+model: Gemini-2.5-Flash
+prompt: |
+  Lets review the Order Management implementation. Walk through the complete order placement workflow from the API request until the database transaction completes. Lets verify request validation, product lookup, inventory availability check, inventory deduction, order persistence, transaction handling, API response
+
+  Identify any missing business rules or production concerns.
+---
+
+---
+timestamp: 2026-07-22T05:35:52Z
+model: Gemini-2.5-Flash
+prompt: |
+  Lets review the Inventory Management implementation. Walk through every inventory operation. Lets verify product creation, inventory updates, lower bound validation, upper bound validation, invalid requests, concurrent inventory updates, transaction boundaries
+
+  Recommend improvements for scalability and maintainability.
+---
+
+---
+timestamp: 2026-07-22T05:38:00Z
+model: Gemini-2.5-Flash
+prompt: |
+  Let's test the Order Management System. Generate a comprehensive test plan covering the successful order placement, insufficient inventory, invalid product IDs, invalid quantities, concurrent order placement, transaction rollback scenarios and API validation errors
+
+  Provide JUnit and integration test cases using Spring Boot Test and MockMvc where appropriate.
+---
+
+---
+timestamp: 2026-07-22T11:41:00Z
+model: Gemini-2.5-Flash
+prompt: |
+  Let's test the Inventory Management System. Generate unit and integration tests covering product creation, inventory increase, inventory decrease, inventory reaching zero, inventory below zero, inventory exceeding maximum limit, invalid adjustment requests, repository failures, concurrent inventory updates. Follow JUnit 5, Mockito, and Spring Boot testing best practices.
+---
+
+---
+timestamp: 2026-07-22T12:15:43Z
+model: Gemini-2.5-Flash
+prompt: |
+  Review the complete application as a production-ready Order and Inventory Management System. Validate the following end-to-end scenarios:
+  1. Create a product.
+  2. Update inventory.
+  3. Retrieve available inventory.
+  4. Place an order.
+  5. Verify inventory deduction.
+  6. Attempt an order with insufficient inventory.
+  7. Verify rollback behavior on failures.
+  8. Verify all API responses and error handling.
+
+  Identify any missing scenarios that should be tested before deployment.
+---
+
+---
+timestamp: 2026-07-22T12:22:11Z
+model: Gemini-2.5-Flash
+prompt: |
+  lets do the testing for Missing Critical Scenarios
+---
+
+---
+timestamp: 2026-07-22T12:28:00Z
+model: Gemini-2.5-Flash
+prompt: |
+  Review the backend implementation as a senior Java engineer. Focus on SOLID principles, transaction safety, maintainability, performance, code smells, and production readiness. Do not rewrite everything suggest only meaningful improvements.
+---
+
+---
+timestamp: 2026-07-22T20:12:00Z
+model: Gemini-1.5-Pro
+prompt: |
+  Extend the existing Vite + React 19 application to support a customer-facing Order Management System (OMS). Implement StorefrontCatalog, StorefrontDetail, OrderHistory, and OrderDetail components using HeroUI and Tailwind CSS. Retain the primitive string-based page router state in App.tsx without installing external routing engines, state managers, or extra hooks.
+---
+
+
+---
+timestamp: 2026-07-22T20:23:00Z
+model: Gemini-1.5-Pro
+prompt: |
+  Fix a duplicated sidebar UI bug by refactoring AppLayout.tsx to accept page routing properties dynamically instead of hardcoding the active state. Remove the nested sidebar instance inside App.tsx to ensure only one structural shell template renders on the screen.
+---
+
+---
+timestamp: 2026-07-23T10:11:00Z
+model: Gemini-1.5-Pro
+prompt: |
+  Implement the customer storefront modules matching exactly the specified criteria: Catalog view with stock masking, Detail interactive purchase panel, local Order history ledger, and transactional Snapshot details. Reuse current structural AppLayout components, HeroUI primitives, and native state management patterns without any routing or optimization boilerplate.
+---
+
+---
+timestamp: 2026-07-23T10:18:00Z
+model: Gemini-1.5-Pro
+prompt: |
+  Cleaned up layout wrapper hierarchy by extracting the inner Sidebar hardcoding entirely out of AppLayout.tsx. Structured App.tsx to natively flex the single custom navigation component alongside the main view page panel, instantly eliminating layout duplication artifacting.
+---
+
+---
+timestamp: 2026-07-23T10:21:00Z
+model: Gemini-1.5-Pro
+prompt: |
+  Refactor all inline fetch calls into a decoupled native TypeScript service layer split across productApi.ts and orderApi.ts. Keep each wrapper lightweight, use standard relative proxy mappings, handle basic JSON translation errors, and eliminate network orchestration logic from the component presentation layer.
+---
+
+---
+timestamp: 2026-07-23T10:25:00Z
+model: Gemini-1.5-Pro
+prompt: |
+  Inspect the existing code and implement the new OMS components using the exact same HeroUI structures (Table, Card, TextField, Button) found in the codebase. Integrate the decoupled API services layer to replace all inline fetch blocks, ensuring strict visual and architectural consistency without adding duplicate components or unnecessary layers of abstraction.
+---
+
+---
+timestamp: 2026-07-23T10:28:00Z
+model: Gemini-1.5-Pro
+prompt: |
+  Establish the final top-level routing wireframe inside App.tsx. Use primitive React state variables to handle transitions between 'ims-list', 'ims-detail', 'oms-catalog', 'oms-detail', 'oms-orders', and 'oms-order-detail' screens. Maintain complete alignment with the lightweight page-switching constraints, omitting external routing mechanics entirely.
+---
+
+---
+timestamp: 2026-07-23T10:33:00Z
+model: Gemini-1.5-Pro
+prompt: |
+  Migrate the application navigation architecture to React Router v7 using BrowserRouter and nested routes. Replace all primitive string-based page switching states with native useNavigate(), useParams(), and <Outlet /> layouts. Maintain strict styling and functional alignment with existing HeroUI templates while establishing production-grade URL history routing.
+---
+
+---
+timestamp: 2026-07-23T10:51:00Z
+model: Gemini-1.5-Pro
+prompt: |
+  Refactor the internal IMS presentation components (ProductListPage and ProductDetailPage) to use the centralized productApi service layer and React Router v7 navigation hooks. Remove inline window history reloads and stale parent routing props to enable smooth data mutations and clean backward navigation stack flow.
+---
+
+---
+timestamp: 2026-07-23T10:56:00Z
+model: Gemini-1.5-Pro
+prompt: |
+  Refactor handleStockAdjust error interceptor handling within ProductDetailPage.tsx to cleanly attempt JSON validation parsing over standard thrown catch errors. Ensure that nested API problem messages are dynamically unpacked instead of leaking stringified JSON validation bodies into the client markup layout.
+---
+
+---
+timestamp: 2026-07-23T11:15:00Z
+model: Gemini-1.5-Pro
+prompt: |
+  Fix the "Out of Stock" storefront rendering bug. Update StorefrontCatalog.tsx and StorefrontDetail.tsx to evaluate the boolean `inStock` property instead of the `stock` integer, complying with the backend DTO data masking requirements that strip exact counts from the public payload.
+---
+
+---
+timestamp: 2026-07-23T11:28:00Z
+model: Gemini-1.5-Pro
+prompt: |
+  Refactor the Category text entry panel inside AddProductModal.tsx into a structured selection dropdown menu. Utilize the exact Dropdown popover assembly pattern present within TopBar.tsx to display and switch between valid product specification enum keys seamlessly.
+---
+
+---
+timestamp: 2026-07-23T11:47:00Z
+model: Gemini-1.5-Pro
+prompt: |
+  Add HTML max constraint limits to the order purchase field based on specification rules. Enhance the catch block interceptor inside StorefrontDetail.tsx to drill into nested validation error structures, presenting human-readable validation strings rather than raw stringified payloads.
+---
+
+---
+timestamp: 2026-07-23T12:01:00Z
+model: Gemini-2.0-Pro
+prompt: |
+  Refactor the Category text panel inside the edit section of ProductDetailPage.tsx into a standard selection dropdown menu. Match HeroUI layout patterns and pass the value back to the edit state correctly.
+---
+
+---
+timestamp: 2026-07-23T12:15:00Z
+model: GPT-5.3-Codex
+prompt: |
+    Act as a Senior Java Full Stack Engineer performing a production-grade code review.
+
+Review the entire backend folder of this project as if you were reviewing a Pull Request before approving it for production.
+
+Evaluate every package and file, including:
+
+- Project structure
+- Package organization
+- Domain modeling
+- Entity design
+- DTOs
+- Controllers
+- Services
+- Repositories
+- Exception handling
+- Validation
+- Transaction management
+- JPA/Hibernate usage
+- Database design
+- REST API design
+- Concurrency issues
+- Business logic
+- Security
+- Logging
+- Configuration
+- Docker configuration
+- Testing
+- Code quality
+- Maintainability
+- Scalability
+- Performance
+
+For each issue provide:
+
+1. File name
+2. Code location (method/class)
+3. Severity
+   - Critical
+   - High
+   - Medium
+   - Low
+4. Why it is an issue
+5. Recommended solution
+6. Example implementation (only when necessary)
+
+Specifically review for:
+
+- SOLID principles
+- Clean Architecture
+- Separation of concerns
+- Dependency Injection
+- Code duplication
+- Null safety
+- Transaction boundaries
+- Exception handling consistency
+- Bean Validation usage
+- DTO vs Entity separation
+- Repository query efficiency
+- N+1 query problems
+- Lazy loading issues
+- Missing indexes
+- Optimistic/Pessimistic locking where appropriate
+- Thread safety
+- Race conditions during inventory updates
+- Proper HTTP status codes
+- REST naming conventions
+- Error response consistency
+- Configuration best practices
+- Sensitive information exposure
+- SQL injection risks
+- Input validation
+- Logging best practices
+- Test coverage
+- Missing unit tests
+- Missing integration tests
+- Test quality
+- Maven dependencies
+- Docker best practices
+
+After the review, provide:
+
+1. Overall Architecture Rating (1-10)
+2. Code Quality Rating (1-10)
+3. Scalability Rating (1-10)
+4. Maintainability Rating (1-10)
+5. Security Rating (1-10)
+6. Production Readiness Rating (1-10)
+
+Finally answer:
+
+- Would you approve this PR?
+- What are the top 10 improvements before production?
+- Is this implementation at the level expected from a Senior Full Stack Engineer?
+- If not, explain what differentiates this code from senior-level production code.
+---
+
+---
+timestamp: 2026-07-23T12:08:00Z
+model: GPT-5.3-Codex
+prompt: |
+    Act as a Senior Staff Frontend Engineer performing a production code review.
+
+Review the entire frontend folder and provide a detailed review without making code changes.
+
+Project Context
+
+This is a Senior Full Stack Developer take-home assessment for MarketNode.
+
+The frontend is intentionally simple.
+
+Technology Stack:
+- React 19
+- TypeScript
+- Vite
+- HeroUI
+- Tailwind CSS
+- React Router (or existing navigation if not yet migrated)
+
+Backend already provides APIs for:
+
+Inventory Management System (IMS)
+- Product List
+- Product Detail
+- Create Product
+- Update Product
+- Delete Product
+- Adjust Stock
+
+Order Management System (OMS)
+- Storefront Product Catalog
+- Storefront Product Detail
+- Place Order
+- Order History
+- Order Detail
+- Cancel Order
+
+The goal is NOT to redesign the application or introduce enterprise frameworks.
+
+Review Criteria
+
+1. Project Structure
+- Folder organization
+- Component organization
+- Feature organization
+- Separation of concerns
+- Naming consistency
+
+2. React Best Practices
+- Component composition
+- Props design
+- State management
+- Hooks usage
+- Avoid unnecessary re-renders
+- useEffect correctness
+- useMemo/useCallback only if truly needed
+
+3. TypeScript
+- Replace unnecessary any types
+- Missing interfaces
+- Better typing opportunities
+- Type safety improvements
+
+4. API Layer
+- Review fetch usage
+- Duplicate API calls
+- Error handling
+- Loading states
+- Response handling
+- Suggest a lightweight services layer if needed
+
+5. UI Components
+- Component reuse
+- Duplicate UI
+- Modal implementation
+- Table implementation
+- Forms
+- Layout consistency
+
+6. Routing
+- Route organization
+- Navigation simplicity
+- Route naming
+- URL structure
+- Avoid unnecessary complexity
+
+7. Code Quality
+- Duplicate code
+- Long components
+- Dead code
+- Unused imports
+- Readability
+- Maintainability
+- Naming conventions
+
+8. Performance
+- Any unnecessary renders
+- Expensive operations
+- Missing keys
+- Large components that should be split
+- Over-optimization (if any)
+
+9. User Experience
+- Loading indicators
+- Empty states
+- Error messages
+- Form validation
+- Disabled buttons
+- Success feedback
+
+10. Assessment Alignment
+
+Review whether the implementation is appropriate for a Senior Full Stack take-home assessment.
+
+Specifically identify:
+
+- Anything that looks junior
+- Anything over-engineered
+- Anything missing
+- Anything that should be simplified
+- Anything that should be refactored
+
+Output Format
+
+Provide your review in the following format:
+
+## Overall Score
+Score out of 10
+
+## Strengths
+List everything that is implemented well.
+
+## Issues
+For each issue include:
+- Severity (High / Medium / Low)
+- File
+- Description
+- Recommendation
+- Reason
+
+## Refactoring Opportunities
+Only recommend improvements that significantly improve maintainability.
+
+## Things NOT to Change
+Identify code that is already appropriate and should remain as-is.
+
+## Final Verdict
+Would this frontend meet expectations for a Senior Full Stack Engineer take-home assessment? Explain why.
+
+Important Constraints
+
+Do NOT recommend introducing:
+- Redux
+- Zustand
+- MobX
+- Context API unless absolutely necessary
+- React Query
+- Axios
+- Complex design patterns
+- Enterprise architecture
+- Premature optimization
+
+Favor clean, simple, maintainable React code over architectural complexity.
+
+Review the code as if you were the hiring manager evaluating a candidate's submission.
+---
+
+---
+timestamp: 2026-07-23T12:09:00Z
+model: GPT-5.3-Codex
+prompt: |
+    Review the existing frontend implementation and make small, incremental improvements based on the code review.
+
+This is a Senior Full Stack take-home assessment.
+
+The goal is NOT to redesign the application or introduce new frameworks.
+
+Keep the implementation simple, readable, and maintainable.
+
+Do not change the overall architecture.
+
+Do not introduce unnecessary abstractions.
+
+Only make improvements that increase code quality while preserving the current UI and behavior.
+
+Improve the following areas:
+
+1. TypeScript
+
+- Replace unnecessary any types.
+- Create lightweight interfaces for:
+  - Product
+  - Order
+  - User
+- Use those interfaces across components and services.
+- Do not create complicated generic types.
+
+2. Loading States
+
+For every page that loads data from the backend:
+
+- Product List
+- Product Detail
+- Storefront Catalog
+- Storefront Detail
+- Order History
+- Order Detail
+
+Add a simple loading state.
+
+Examples:
+
+- "Loading products..."
+- "Loading order..."
+- Simple HeroUI Spinner
+
+Do not build skeleton loaders.
+
+Keep it minimal.
+
+3. Error Handling
+
+Handle failed API requests.
+
+Display a small error message such as:
+
+"Unable to load data."
+
+or
+
+"Something went wrong. Please try again."
+
+Do not create a global error handling framework.
+
+Keep errors local to each page.
+
+4. Empty States
+
+When lists are empty, display simple messages.
+
+Examples:
+
+"No products found."
+
+"No orders found."
+
+Do not leave blank tables.
+
+5. Forms
+
+Improve the existing forms.
+
+Add simple validation:
+
+- required name
+- required category
+- required price
+- quantity > 0
+- price >= 0
+
+Disable the Save / Place Order button while the request is in progress.
+
+Prevent duplicate submissions.
+
+Do not use Formik or React Hook Form.
+
+Use existing React state.
+
+6. Detail Pages
+
+Currently some detail pages render nothing while data is loading.
+
+Replace
+
+return null
+
+with
+
+- Spinner
+or
+- Loading message
+
+Do not redesign the page.
+
+7. API Services
+
+Keep using fetch.
+
+Do not introduce Axios.
+
+Add simple error checking.
+
+Example:
+
+if (!response.ok)
+    throw new Error(...)
+
+Return typed responses.
+
+Keep services small.
+
+8. Reusable Types
+
+Create
+
+src/types/
+
+containing
+
+Product.ts
+Order.ts
+User.ts
+
+Only move interfaces there.
+
+Do not move business logic.
+
+9. Code Cleanup
+
+Remove:
+
+- unused imports
+- duplicated code where reasonable
+- unnecessary state
+- unnecessary effects
+
+Split components only if they exceed roughly 200 lines.
+
+Do not aggressively refactor.
+
+10. Performance
+
+Do not prematurely optimize.
+
+Do not introduce:
+
+- useMemo everywhere
+- useCallback everywhere
+
+Only add memoization if it solves a real issue.
+
+11. UI
+
+Keep the UI exactly as it is.
+
+Do not redesign.
+
+Do not change spacing.
+
+Do not introduce animations.
+
+Do not introduce themes.
+
+Do not add charts.
+
+Do not add search.
+
+Do not add pagination.
+
+Do not add filters.
+
+Do not make the application look "fancier."
+
+12. Architecture
+
+Do NOT introduce:
+
+- Redux
+- Zustand
+- Context API
+- React Query
+- SWR
+- MobX
+- Clean Architecture
+- Repository Pattern
+- Generic Base Components
+- Custom Hooks unless duplicated logic clearly exists
+
+Keep everything straightforward.
+
+Output
+
+Implement the improvements directly.
+
+Before making each change, verify that it meaningfully improves the code.
+
+If a suggestion would add unnecessary complexity for a take-home assessment, skip it.
+
+The final result should feel like code written by an experienced senior engineer who values simplicity, readability, and maintainability over excessive abstraction.
+---
+
+---
+timestamp: 2026-07-23T12:15:00Z
+model: GPT-5.3-Codex
+prompt: |
+    Act as a Senior Java Full Stack Engineer performing a production-grade code review.
+
+Review the entire backend folder of this project as if you were reviewing a Pull Request before approving it for production.
+
+Evaluate every package and file, including:
+
+- Project structure
+- Package organization
+- Domain modeling
+- Entity design
+- DTOs
+- Controllers
+- Services
+- Repositories
+- Exception handling
+- Validation
+- Transaction management
+- JPA/Hibernate usage
+- Database design
+- REST API design
+- Concurrency issues
+- Business logic
+- Security
+- Logging
+- Configuration
+- Docker configuration
+- Testing
+- Code quality
+- Maintainability
+- Scalability
+- Performance
+
+For each issue provide:
+
+1. File name
+2. Code location (method/class)
+3. Severity
+   - Critical
+   - High
+   - Medium
+   - Low
+4. Why it is an issue
+5. Recommended solution
+6. Example implementation (only when necessary)
+
+Specifically review for:
+
+- SOLID principles
+- Clean Architecture
+- Separation of concerns
+- Dependency Injection
+- Code duplication
+- Null safety
+- Transaction boundaries
+- Exception handling consistency
+- Bean Validation usage
+- DTO vs Entity separation
+- Repository query efficiency
+- N+1 query problems
+- Lazy loading issues
+- Missing indexes
+- Optimistic/Pessimistic locking where appropriate
+- Thread safety
+- Race conditions during inventory updates
+- Proper HTTP status codes
+- REST naming conventions
+- Error response consistency
+- Configuration best practices
+- Sensitive information exposure
+- SQL injection risks
+- Input validation
+- Logging best practices
+- Test coverage
+- Missing unit tests
+- Missing integration tests
+- Test quality
+- Maven dependencies
+- Docker best practices
+
+After the review, provide:
+
+1. Overall Architecture Rating (1-10)
+2. Code Quality Rating (1-10)
+3. Scalability Rating (1-10)
+4. Maintainability Rating (1-10)
+5. Security Rating (1-10)
+6. Production Readiness Rating (1-10)
+
+Finally answer:
+
+- Would you approve this PR?
+- What are the top 10 improvements before production?
+- Is this implementation at the level expected from a Senior Full Stack Engineer?
+- If not, explain what differentiates this code from senior-level production code.
+---
+
+---
+timestamp: 2026-07-23T12:16:00Z
+model: GPT-5.3-Codex
+prompt: |
+    Review the entire backend project again, but this time use TASKS.md and PRODUCT.md as the primary source of truth.
+
+Do NOT review this project as if it were a production banking application.
+
+Instead, evaluate it as a take-home assessment.
+
+Before reviewing:
+
+1. Read TASKS.md completely.
+2. Read PRODUCT.md completely.
+3. Determine:
+   - Required features
+   - Optional features
+   - Explicitly out-of-scope items
+   - Nice-to-have enhancements
+
+Then review the backend and classify every recommendation into one of these categories:
+
+## Category A - Required Changes
+These are issues where the implementation does NOT satisfy TASKS.md or PRODUCT.md and must be fixed.
+
+## Category B - Strong Improvements
+These are not explicitly required but significantly improve the assessment and would positively influence a senior engineer reviewing the submission.
+
+## Category C - Production Recommendations
+These are production-grade improvements (authentication, monitoring, Flyway, Kubernetes, etc.) that were NOT requested by the assessment and therefore should NOT be considered missing requirements.
+
+For every issue provide:
+
+- File
+- Class
+- Method
+- Why it matters
+- Whether it is required by TASKS.md
+- Whether it should be implemented before submitting the assessment
+
+Finally answer:
+
+1. Does the current implementation satisfy all functional requirements from TASKS.md?
+2. Does it satisfy PRODUCT.md?
+3. What would prevent this submission from passing a senior engineer's review?
+4. Which recommendations are unnecessary for this assessment?
+---
+
+---
+timestamp: 2026-07-23T12:25:00Z
+model: GPT-5.3-Codex
+prompt: |
+Read TASKS.md and PRODUCT.md completely before making any changes.
+
+Treat these two documents as the source of truth for the implementation.
+
+This is a take-home assessment, not a production banking application.
+
+The backend already satisfies most of the functional requirements. I only want to implement changes that improve compliance with the assessment and strengthen the submission for a Senior Full Stack Engineer review.
+
+Do NOT redesign the application or introduce enterprise features that are outside the assessment scope.
+
+Do NOT add:
+
+- Spring Security
+- JWT/OAuth
+- Authentication or Authorization
+- Flyway/Liquibase
+- Redis
+- Kafka
+- CQRS
+- Event Sourcing
+- Microservices
+- Kubernetes
+- Prometheus/Grafana
+- Distributed tracing
+- Caching
+- Secret management
+- Any unnecessary framework or dependency
+
+Only implement the following improvements.
+
+----------------------------------------
+1. Fix Order History Behavior (Required)
+----------------------------------------
+
+Review PRODUCT.md and TASKS.md carefully.
+
+The OMS should expose a customer's own order history rather than a generic list of all orders.
+
+Review:
+
+- OrderController
+- OmsOrderService
+- OrderRepository
+
+Implement the appropriate API and service changes so that order history follows the intended product behavior.
+
+Preserve the existing architecture.
+
+Do not break existing functionality.
+
+----------------------------------------
+2. Improve Validation
+----------------------------------------
+
+Review all request validation.
+
+Improve validation only where it directly supports the assessment requirements.
+
+Examples include:
+
+- invalid stock adjustments
+- invalid quantities
+- invalid request parameters
+- invalid IDs
+
+Use Bean Validation where appropriate.
+
+Return consistent API responses.
+
+Do not redesign the validation framework.
+
+----------------------------------------
+3. Improve Exception Handling
+----------------------------------------
+
+Review GlobalExceptionHandler.
+
+Only improve consistency where necessary.
+
+Do not introduce unnecessary complexity.
+
+Maintain the current response contract unless PRODUCT.md requires otherwise.
+
+----------------------------------------
+4. Review Business Logic
+----------------------------------------
+
+Review:
+
+- ImsProductService
+- OmsOrderService
+
+Verify that every business rule described in PRODUCT.md is implemented correctly.
+
+Examples:
+
+- stock cannot become negative
+- stock cannot exceed maximum
+- product snapshots are preserved in orders
+- soft deleted products behave correctly
+- cancelled orders restore inventory if required by the specification
+- transactional consistency
+
+Only modify logic if it does not satisfy the requirements.
+
+----------------------------------------
+5. Improve Test Coverage
+----------------------------------------
+
+Review the existing tests.
+
+Do not rewrite them.
+
+Only add tests for functionality required by TASKS.md that is currently missing.
+
+Prioritize:
+
+- order history
+- invalid stock adjustment
+- insufficient inventory
+- invalid product
+- order cancellation
+- validation failures
+
+Use JUnit 5, Mockito, MockMvc and Spring Boot Test where appropriate.
+
+----------------------------------------
+6. Final Verification
+----------------------------------------
+
+After implementing the changes:
+
+Review the backend against TASKS.md and PRODUCT.md again.
+
+Verify:
+
+- every required feature is implemented
+- no required business rule is missing
+- no API contract violates the assessment
+- no unnecessary complexity was introduced
+
+Finally provide:
+
+1. List of modified files.
+2. Summary of every change.
+3. Why each change was necessary.
+4. Any remaining optional improvements that are NOT required for this assessment.
+
+Only make changes that improve the assessment submission.
+Do not optimize for enterprise production features.
+Optimize for correctness, maintainability, and alignment with the assessment requirements.
+---
+
+---
+timestamp: 2026-07-23T12:40:00Z
+model: GPT-5.3-Codex
+prompt: |
+Perform one final review of the backend.
+
+Use TASKS.md and PRODUCT.md as the grading rubric.
+
+Assume you are a Senior Full Stack Engineer reviewing this take-home assignment.
+
+Do NOT evaluate missing enterprise features.
+
+Evaluate only:
+
+- Functional correctness
+- Business rule implementation
+- REST API design
+- Validation
+- Transaction handling
+- Exception handling
+- Code quality
+- Test coverage
+- Maintainability
+
+Answer:
+
+1. Does the implementation satisfy 100% of TASKS.md?
+2. Does it satisfy 100% of PRODUCT.md?
+3. Are there any remaining functional bugs?
+4. Are there any remaining code quality issues worth fixing before submission?
+5. Would you approve this submission for a Senior Full Stack Developer take-home assessment?
+
+If you recommend additional changes, they must directly relate to the assessment requirements, not production hardening.
+---
+
+---
+timestamp: 2026-07-23T13:10:00Z
+model: GPT-5.3-Codex
+prompt: |
+  Review the backend implementation against TASKS.md and PRODUCT.md as a senior full stack engineer. Evaluate functional correctness, business rules, REST API design, validation, transaction handling, exception handling, code quality, test coverage, and maintainability. Do not evaluate enterprise-level or non-assessment features.
+---
+
+---
+timestamp: 2026-07-23T13:20:00Z
+model: GPT-5.3-Codex
+prompt: |
+  Create a Dockerfile for the frontend application and update docker-compose.yml so the frontend can be run from the repository root alongside the backend and database.
+---
+
+---
+timestamp: 2026-07-23T13:24:00Z
+model: GPT-5.3-Codex
+prompt: |
+  Update ai-prompt.log to record AI interactions in the required format from TASKS.md, including a numbered entry for each interaction.
+---
+

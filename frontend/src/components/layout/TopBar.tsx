@@ -1,0 +1,38 @@
+import { Avatar, Dropdown } from '@heroui/react';
+import type { User } from '../../types/User';
+
+interface TopBarProps {
+  currentUser: User;
+  users: User[];
+  onUserChange: (user: User) => void;
+}
+
+export default function TopBar({ currentUser, users, onUserChange }: TopBarProps) {
+  return (
+    <header className="h-14 border-b border-default-200 bg-white flex items-center justify-between px-6 shrink-0">
+      <div className="flex items-center gap-2">
+        <span className="font-bold text-lg">MarketNode</span>
+      </div>
+      <Dropdown>
+        <Dropdown.Trigger>
+          <button className="flex items-center gap-2 cursor-pointer outline-none">
+            <span className="text-sm text-default-500">{currentUser.email}</span>
+            <Avatar size="sm">
+              <Avatar.Fallback>{currentUser.name.charAt(0)}</Avatar.Fallback>
+            </Avatar>
+          </button>
+        </Dropdown.Trigger>
+        <Dropdown.Popover>
+          <Dropdown.Menu onAction={(key) => {
+            const user = users.find((u) => String(u.id) === String(key));
+            if (user) onUserChange(user);
+          }}>
+            {users.map((u) => (
+              <Dropdown.Item key={u.id} id={String(u.id)}>{u.name}</Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+        </Dropdown.Popover>
+      </Dropdown>
+    </header>
+  );
+}
