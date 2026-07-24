@@ -118,7 +118,7 @@ export default function ProductDetailPage() {
     } catch (err) {
       try {
         const parsedError = JSON.parse((err as Error).message);
-        setError(parsedError.message || 'Error');
+        setError(parsedError.message || parsedError.errors.amount || 'Error');
       } catch {
         setError((err as Error).message || 'Error');
       }
